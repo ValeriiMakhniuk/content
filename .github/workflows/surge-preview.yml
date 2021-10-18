@@ -28,7 +28,8 @@ jobs:
           files=$(echo $(curl \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/doka-guide/content/pulls/2007/files))
-          list=$(echo $files | grep -o -E '(css|html|js|tools)/.+' | tr '(images|demos|practice)/.+' 'index.html' | tr '\n' ' ')
+          echo $files
+          list=$(echo $files | grep -o -E '(css|html|js|tools)/.+' | tr '\n' ' ')
           echo "::set-output name=all::$list"
           echo $list
   surge-preview:
