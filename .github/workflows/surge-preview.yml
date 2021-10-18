@@ -30,6 +30,7 @@ jobs:
             https://api.github.com/repos/doka-guide/content/pulls/2007/files))
           list=$(echo $files | grep -o -E '(css|html|js|tools)/.+' | tr '(images|demos|practice)/.+' 'index.html' | tr '\n' ' ')
           echo "::set-output name=all::$list"
+          echo $list
   surge-preview:
     runs-on: ubuntu-latest
     needs:
